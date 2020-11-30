@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>ckplayer</title>
+
+		<style type="text/css">body{margin:0;padding:0px;font-family:"Microsoft YaHei",YaHei,"微软雅黑",SimHei,"黑体";font-size:14px}</style>
+
+	</head>
+
+	<body>
+		<div id="video" style="width: 600px; height: 400px;"></div>
+		<script type="text/javascript" src="ckplayer.js"></script>
+		<script type="text/javascript">
+			var videoObject = {
+				container: '#video', //容器的ID或className
+				variable: 'player',//播放函数名称
+				// poster:'../material/poster.jpg',//封面图片
+				flashplayer: false,//设置成true则强制使用flashplayer
+        html5m3u8: true,//PC平台上是否使用h5播放器播放m3u8
+				// debug: true,//是否开启调试模式
+				autoplay: false,//是否自动播放
+				loop: false,//是否需要循环播放
+				live: true,//是否是直播
+				video: 'http://lx.wazhiyuan.com:8001/hls/192.168.3.212.m3u8'//'https://yunqivedio.alicdn.com/2017yq/v2/0x0/96d79d3f5400514a6883869399708e11/96d79d3f5400514a6883869399708e11.m3u8'
+			};
+			var player = new ckplayer(videoObject);
+		</script>
+	</body>
+
+</html>
