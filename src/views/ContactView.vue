@@ -2,11 +2,11 @@
   <div class="contact-wrapper">
     <div class="container">
       <div class="qrcode">
-        <img src="../assets/img/qrcode.png" />
+        <img src="../assets/img/qrcode.jpg" />
       </div>
-      <p class="text">电话: 0571-62119388</p>
-      <p class="text">网址: http://www.hzhnao.cn</p>
-      <p class="text">地址: 杭州市滨江区滨康路352号中控信息大厦B座1502</p>
+      <p class="text">固定电话: +86 0573-87876969</p>
+      <p class="text">手机号: +86 13736884578</p>
+      <p class="text">地址: 浙江省海宁市丁桥镇联保路29号</p>
     </div>
   </div>
 </template>
@@ -33,6 +33,6 @@
       img
         width: 100%
     .text
-      margin: 10px 0
-      font-size: 12px
+      margin: 15px 0
+      font-size: 16px
 </style>

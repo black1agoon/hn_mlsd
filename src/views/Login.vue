@@ -3,7 +3,7 @@
     <div class="title">登录</div>
     <div class="input-wrap">
       <i class="username"></i>
-      <input class="input" type="text" v-model="loginData.credential" placeholder="手机号码" />
+      <input class="input" type="text" v-model="loginData.credential" placeholder="账号" />
     </div>
     <div class="input-wrap">
       <i class="password"></i>
@@ -34,7 +34,8 @@
         }
         const toast = this.$createToast({
           txt: '登录中...',
-          mask: true
+          mask: true,
+          time: 99999
         })
         toast.show()
         this.$store.dispatch('login', this.loginData).then(() => {

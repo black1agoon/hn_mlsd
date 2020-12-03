@@ -1,8 +1,8 @@
 <template>
   <div class="detail-wrapper">
-    <div class="back">
-      <i class="cubeic-back icon" @click="back"></i>
-    </div>
+<!--    <div class="back">-->
+<!--      <i class="cubeic-back icon" @click="back"></i>-->
+<!--    </div>-->
     <ul class="status-wrapper">
       <li :class="{active: detailData.status === status.status || detailData.isApplyOut}" v-for="(status, index) in STATUS" :key="index">
         <p class="name">{{status.name}}</p>
@@ -55,7 +55,7 @@
         <div class="list-wrapper">
           <img class="image"
                v-for="(file, index) in detailData.productFileList"
-               :src="file.filePath"
+               :src="getImageUrl(file.filePath)"
                @click="handleImgsClick(index)"
                :key="index">
         </div>
@@ -67,6 +67,8 @@
 
 <script>
   import api from '@/api'
+  import {getImageUrl} from '../assets/js/utils'
+
   const STATUS = [
     {
       name: '待生产',
@@ -92,7 +94,8 @@
         STATUS,
         detailData: {
           productFileList: []
-        }
+        },
+        getImageUrl
       }
     },
     methods: {
@@ -100,7 +103,7 @@
         this.initialIndex = index
         const params = {
           $props: {
-            imgs: this.detailData.productFileList.map(f => f.filePath),
+            imgs: this.detailData.productFileList.map(f => getImageUrl(f.filePath)),
             initialIndex: 'initialIndex', // 响应式数据的key名
             loop: false
           },
@@ -114,14 +117,23 @@
         this.$createImagePreview({ ...params }).show()
       },
       getOrderDetail(id) {
+        const toast = this.$createToast({
+          txt: '加载中...',
+          mask: true
+        })
+        toast.show()
         api.AndroidTUGetTradeItem({
           id
         }).then(res => {
           this.detailData = res.data.data
+          toast.hide()
+        }).catch(() => {
+          toast.hide()
         })
       },
       back() {
-        this.$router.back()
+        // this.$router.back()
+        this.$router.push('/home/orderview')
       }
     },
     beforeRouteEnter(to, from, next) {

@@ -1,13 +1,13 @@
 <template>
 
   <div class="online-wrapper">
-    <div class="header">
-      <div class="title">我的视频</div>
-    </div>
+<!--    <div class="header">-->
+<!--      <div class="title">我的视频</div>-->
+<!--    </div>-->
     <div class="video-wrapper">
-      <div class="video-num">
-        <i class="video"></i>{{videoList.length}}个摄像机
-      </div>
+<!--      <div class="video-num">-->
+<!--        <i class="video"></i>{{videoList.length}}个摄像机-->
+<!--      </div>-->
       <div class="video-container">
         <cube-scroll>
           <div class="video-box" v-for="(video, index) in videoList" :key="index">
@@ -107,18 +107,18 @@
     display: flex
     flex-direction: column
 
-    .header
-      width: 100%
-      flex: 0 0 95px
-      background-image: url("../assets/img/onlinebg.png")
-      background-size: cover
-      background-repeat: no-repeat
-      overflow: hidden
+    /*.header*/
+    /*  width: 100%*/
+    /*  flex: 0 0 95px*/
+    /*  background-image: url("../assets/img/onlinebg.png")*/
+    /*  background-size: cover*/
+    /*  background-repeat: no-repeat*/
+    /*  overflow: hidden*/
 
-      .title
-        color: #333333
-        font-size: 18px
-        margin: 45px 0 0 24px
+    /*  .title*/
+    /*    color: #333333*/
+    /*    font-size: 18px*/
+    /*    margin: 45px 0 0 24px*/
 
     .video-wrapper
       background: #F8F8F8
@@ -156,7 +156,7 @@
         overflow: hidden
 
         .video-box
-          margin: 0 28px 16px
+          margin: 30px 28px 16px
           height: 250px
           overflow: hidden
           background: #ffffff
@@ -194,6 +194,7 @@
         height: 120px
         .input
           margin: 0 20px
+          box-shadow: 0 0 3px #ccc
           &:after
             border: none !important
         .button
@@ -208,6 +209,7 @@
           border: none
           outline: none
           transition: all .2s
+          box-shadow: 0 0 2px #174909
           &:active
             background: #174909
 </style>

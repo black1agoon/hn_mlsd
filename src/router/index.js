@@ -11,6 +11,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    redirect: '/login'
+  },
+  {
     path: '/login',
     name: 'Login',
     component: Login
@@ -21,15 +25,24 @@ const routes = [
       {
         path: 'orderview',
         component: OrderView,
-        name: 'orderview'
+        name: 'orderview',
+        meta: {
+          title: '订单管理'
+        }
       }, {
         path: 'onlineview',
         component: OnlineView,
-        name: 'onlineview'
+        name: 'onlineview',
+        meta: {
+          title: '在线验厂'
+        }
       }, {
         path: 'contactview',
         component: ContactView,
-        name: 'contactview'
+        name: 'contactview',
+        meta: {
+          title: '联系我们'
+        }
       }
     ]
   }, {
@@ -43,6 +56,15 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  } else {
+    document.title = '龙仕达'
+  }
+  next()
 })
 
 export default router

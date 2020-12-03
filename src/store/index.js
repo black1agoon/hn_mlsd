@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import api from '@/api'
-
+import {getCookie} from '../assets/js/utils'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -24,6 +24,8 @@ export default new Vuex.Store({
         }
         commit('SET_LOGIN_DATA', res.data.data)
         window.localStorage.setItem('loginData', JSON.stringify(res.data.data))
+        // 保存token
+        window.localStorage.setItem('token', getCookie('ck_token'))
       }).catch(err => {
         return Promise.reject(err)
       })

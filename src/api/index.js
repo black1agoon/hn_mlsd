@@ -5,6 +5,12 @@ import { Toast } from 'cube-ui'
 axios.defaults.withCredentials = true
 axios.interceptors.request.use(config => {
   config.baseURL = process.env.NODE_ENV === 'production' ? SERVER_URI : ''
+  const token = window.localStorage.getItem('token')
+  // if (token) {
+  //   console.log(token)
+  //   document.cookie = `ck_token=${token};path=/`
+  // }
+  token && (document.cookie = `ck_token=${token};path=/`)
   return config
 })
 
