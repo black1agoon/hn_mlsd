@@ -40,7 +40,7 @@
         toast.show()
         this.$store.dispatch('login', this.loginData).then(() => {
           toast.hide()
-          this.$router.push('/home/orderview')
+          this.$router.push('/home')
         }).catch(() => {
           toast.hide()
         })
